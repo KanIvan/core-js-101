@@ -54,8 +54,11 @@ function generateOdds(len) {
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  const arr2 = [];
+  const arr3 = arr2.concat(arr);
+  const arr4 = arr3.concat(arr);
+  return arr4;
 }
 
 
@@ -477,8 +480,10 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arr = new Array(end - start + 1).fill(0)
+    .map((_, i) => i + start);
+  return arr;
 }
 
 /**
@@ -492,8 +497,9 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const arr2 = new Set(arr);
+  return [...arr2];
 }
 
 /**
@@ -561,8 +567,14 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, indexes) {
+  if (indexes.length === 2) {
+    return arr[indexes[0]][indexes[1]];
+  }
+  if (indexes.length === 3) {
+    return arr[indexes[0]][indexes[1]][indexes[2]];
+  }
+  return arr[indexes];
 }
 
 
